@@ -1,27 +1,31 @@
+
+# import required modules
 import requests, json
 
-# def get_weather_desc_and_temp():
 api_key = "27fca51a2a0f1a87475e5c32dfd60e8b"
-city = "Louisville"
-url = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+api_key+"&units=imperial"
+base_url = "http://api.openweathermap.org/data/2.5/weather?"
+city_name = input("Enter city name : ")
+complete_url = base_url + "appid=" + api_key + "&q=" + city_name +"&units=imperial"
 
-request = requests.get(url)
-json = request.json()
-# print(json)
+response = requests.get(complete_url)
 
-description = json.get("weather")[0].get("description")
-temp_min = json.get("main").get("temp_min")
-temp_max = json.get("main").get("temp_max")
-
-return {'description': description,
-    'temp_min': temp_min,
-    'temp_max': temp_max}
-
-def main():
-    weather_dict = get_weather_desc_and_temp()
-    #Print the results
-    print("Today's forecast is", weather_dict.get('description'))
-    print("The minimum temperature is", weather_dict.get('temp_min'))
-    print("The maximum temperature is", weather_dict.get('temp_max'))
-
-main()
+x = response.json()
+if x["cod"] != "404":
+    y = x["main"]
+    current_temperature = y["temp"]
+    current_pressure = y["pressure"]
+    current_humidity = y["humidity"]
+    z = x["weather"]
+    
+    weather_description = z[0]["description"]
+    # print following values
+    print(" Temperature (in degrees Fahrenheit unit) = " +
+                    str(current_temperature) +
+          "\n atmospheric pressure (in hPa unit) = " +
+                    str(current_pressure) +
+          "\n humidity (in percentage) = " +
+                    str(current_humidity) +
+          "\n description = " +
+                    str(weather_description))
+else:
+    print(" City Not Found ")
