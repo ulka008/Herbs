@@ -1,21 +1,26 @@
-This is part of my garden project, which includes some information on the herb garden we started with my children during a lockdown. It includes the most common herbs, their pictures, latin names and harvest/maturity days.
+This is part of my garden project, which includes some information on the herb garden we started with my children during a lockdown. It includes the most common herbs, the countdown clock to be able to plant outdoors again and harvest/maturity days.
 
-img folder: contains images used on my site. Images were downloaded from unsplash.com and are free for personal use.
+IMPORTANT: 
+To run this project, please contact me for the google colab link.
+
+The other way to do it is to download ipynb file and run it in google colab. On more information on how to run it, please see https://colab.research.google.com/
+
+The py. files that you see are also in colab file.
 
 countdown.py: contains countdown clock to the time we can start planting again.
 
 weather.py: contains weather API for your city.
 
-contact_form.py: contains regex for my contact form.
-
-
-IMPORTANT: please 
-
-New features added: regex in contact form, API in weather.py and server.js, API fetch request in directory.js and harvest countdown clock.
+This project uses the following packages:
+- pandas as pd
+- matplotlib.pyplot as plt
+- requests
+- datetime
+- xlsxwriter
 
 The following requirements were met:
 
-- Implement a regular expression (regex) to ensure a field either a phone number or an email address is always stored and displayed in the same format
-- Read and parse an external file (such as JSON or CSV) into your application and display some data from that in your app
-- Retrieve data from an external API and display data in your app (such as with fetch() or with AJAX)
-- Calculate and display data based on an external factor (ex: get the current date, and display how many days remaining until some event)
+- Connect to an external/3rd party API and read data into your app.
+- Calculate and display data based on an external factor (ex: get the current date, and display how many days remaining until some event).
+- Read data from an external file, such as text, JSON, CSV, etc and use that data in your application.
+- Visualize data in a graph, chart, or other visual representation of data.
